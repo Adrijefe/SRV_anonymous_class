@@ -1,6 +1,23 @@
+class Persona {
+    // ...
+}
+
+interface alumno{
+
+}
+
 public class Main {
+
+    static void imprimirJerarquiaDeClasses(Class<?> c) {
+        System.out.print(c.getName() + (c.getSuperclass() != null ? "  >  " : "\n"));
+        if (c.getSuperclass() == null) return;
+        imprimirJerarquiaDeClasses(c.getSuperclass());
+    }
+
     public static void main(String[] args) {
-        System.out.println("holaaaa bebeeee!");
-        System.out.println("Adioooos");
+
+        alumno alumne = new alumno(){};
+
+        imprimirJerarquiaDeClasses(alumne.getClass());
     }
 }
